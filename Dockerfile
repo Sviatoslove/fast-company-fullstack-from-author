@@ -1,3 +1,7 @@
+FROM docker
+COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
+RUN docker buildx version
+
 FROM node:18 as client
 
 WORKDIR /app/client
